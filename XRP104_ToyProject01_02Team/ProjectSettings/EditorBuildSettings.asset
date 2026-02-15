@@ -6,8 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/KHW_Scene/Title Scene.unity
+    guid: bb193f05965ba0d47ba01e39e1b75799
+  - enabled: 1
+    path: Assets/Scenes/KHW_Scene/StageSelectionScene.unity
+    guid: b5f456e74acb3d64a8b4c5edf43dfcd0
+  - enabled: 1
+    path: Assets/Scenes/KHW_Scene/MainGame Scene.unity
+    guid: 34bc70c859211fd4c9f96190902144d4
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
