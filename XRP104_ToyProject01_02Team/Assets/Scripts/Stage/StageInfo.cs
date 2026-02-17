@@ -10,7 +10,6 @@ public class StageInfo : SceneSingleton<StageInfo>
     [field: SerializeField] public float StageTimeLimit { get; private set; }
 
     private HashSet<EnemyController> _enemies = new HashSet<EnemyController>();
-    public event Action OnStageClear;
     public bool HasRemainingEnemies => _enemies.Count > 0;
     
     private void Awake()
@@ -32,10 +31,5 @@ public class StageInfo : SceneSingleton<StageInfo>
     public void RemoveEnemy(EnemyController enemy)
     {
         _enemies.Remove(enemy);
-
-        if (!HasRemainingEnemies)
-        {
-            OnStageClear?.Invoke();
-        }
     }
 }
