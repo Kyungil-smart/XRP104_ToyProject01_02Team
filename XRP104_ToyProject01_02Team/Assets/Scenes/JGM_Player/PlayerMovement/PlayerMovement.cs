@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -11,6 +12,11 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 _inputDirection;
     private Vector3 _moveDirection;
+
+    private bool _prevIsMoving = false;
+    public bool IsMoving => _moveDirection != Vector3.zero;
+
+    public event Action<bool> OnMove;
 
     private void Awake()
     {
@@ -42,7 +48,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_rigidbody == null)
             return;
-
+        
+        
+        
         Move();
         Rotate();
     }
@@ -56,6 +64,10 @@ public class PlayerMovement : MonoBehaviour
         );
 
         _rigidbody.linearVelocity = velocity;
+
+        if (_prevIsMoving != IsMoving) OnMove?.Invoke(IsMoving);
+        
+        _prevIsMoving = IsMoving;
     }
 
     private void Rotate()
