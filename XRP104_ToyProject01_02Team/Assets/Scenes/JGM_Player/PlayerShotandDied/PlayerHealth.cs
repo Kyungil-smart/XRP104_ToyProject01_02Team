@@ -1,13 +1,16 @@
+using System;
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour, IDamageable
+public class PlayerHealth : MonoBehaviour, IDamagable
 {
     [Header("Health Settings")]
-    [SerializeField] private float maxHP = 100f;
+    [SerializeField] private float maxHP = 10f;
 
-    private float _currentHP;
+    [SerializeField] private float _currentHP;
     private bool _isDead = false;
     private PlayerMovement _movement;
+
+    public event Action OnDie;
 
     private void Awake()
     {
@@ -25,7 +28,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
         _currentHP -= damage;
 
-        Debug.Log($"플레이어 피격: {damage} / 남은 HP: {_currentHP}");
+        // Debug.Log($"플레이어 피격: {damage} / 남은 HP: {_currentHP}");
 
         if (_currentHP <= 0f)
         {
@@ -47,7 +50,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
             _movement.enabled = false;
         }
 
-        // TODO: 사망 애니메이션 추가 예정
+        OnDie?.Invoke();
 
         // TODO: GameManager 구현 후 연결 예정
         // GameManager.Instance.GameOver();

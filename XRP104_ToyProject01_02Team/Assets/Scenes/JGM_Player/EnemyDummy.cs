@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyDummy : MonoBehaviour, IDamageable
+public class EnemyDummy : MonoBehaviour, IDamagable
 {
     [SerializeField] private float maxHP = 50f;
 

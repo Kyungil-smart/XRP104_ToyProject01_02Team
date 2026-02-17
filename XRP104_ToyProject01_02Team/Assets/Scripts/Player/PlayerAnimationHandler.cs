@@ -7,6 +7,7 @@ public class PlayerAnimationHandler : MonoBehaviour
     private readonly int Die = Animator.StringToHash("Die");
 
     private PlayerMovement _movement;
+    private PlayerHealth _health;
     private Animator _animator;
 
     private void Awake() => Init();
@@ -17,16 +18,19 @@ public class PlayerAnimationHandler : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _movement = GetComponent<PlayerMovement>();
+        _health = GetComponent<PlayerHealth>();
     }
 
     private void SubscribeEvents()
     {
         _movement.OnMove += OnMove;
+        _health.OnDie += OnDie;
     }
 
     private void UnsubscribeEvents()
     {
         _movement.OnMove -= OnMove;
+        _health.OnDie -= OnDie;
     }
 
     private void OnMove(bool isMove) => _animator.SetBool(IsMove, isMove);
