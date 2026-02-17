@@ -4,7 +4,8 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class Projectile : MonoBehaviour
 {
-    [Header("Projectile Settings")]
+    [Header("Projectile Settings")] 
+    [SerializeField] private LayerMask _attackTargetLayer;
     [SerializeField] private float speed = 15f;
     [SerializeField] private float lifeTime = 3f;
 
@@ -56,15 +57,18 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject, lifeTime);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
         if (!_initialized)
             return;
 
-        if (_owner != null && collision.transform.root.gameObject == _owner)
-            return;
+        // if (_owner != null && other.transform.root.gameObject == _owner) return;
 
-        IDamageable damageable = collision.collider.GetComponent<IDamageable>();
+        if (((1 << other.gameObject.layer) & _attackTargetLayer.value) == 0) return;
+        
+        Debug.Log(other.gameObject.name);
+        
+        IDamagable damageable = other.transform.GetComponent<IDamagable>();
 
         if (damageable != null)
         {

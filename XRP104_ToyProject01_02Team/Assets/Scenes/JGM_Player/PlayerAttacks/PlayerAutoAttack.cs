@@ -6,8 +6,10 @@ public class PlayerAutoAttack : MonoBehaviour
     [Header("Attack Settings")]
     [SerializeField] private float coolTime = 0.5f;
     [SerializeField] private float damage = 10f;
-    [SerializeField] private GameObject projectilePrefab;
+    //[SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private PlayerBullet _bulletPrefab;
     [SerializeField] private Transform firePoint;
+    [SerializeField] private LayerMask _targetLayer;
 
     private PlayerTargeting _targeting;
     private float _lastAttackTime = -999f;
@@ -24,11 +26,14 @@ public class PlayerAutoAttack : MonoBehaviour
             return;
         }
 
+        /*
         if (projectilePrefab == null)
         {
             Debug.LogError("Projectile Prefab이 설정되지 않았습니다.");
             enabled = false;
         }
+        */
+        
     }
 
     private void Update()
@@ -65,17 +70,24 @@ public class PlayerAutoAttack : MonoBehaviour
 
     private void Attack(Transform target)
     {
-        if (projectilePrefab == null)
+        if (_bulletPrefab == null)
             return;
 
+        /*
         Vector3 spawnPosition = firePoint != null ? firePoint.position : transform.position;
         Vector3 direction = (target.position - spawnPosition).normalized;
 
         if (direction.sqrMagnitude < 0.001f)
             return;
+            */
 
+        PlayerBullet bullet = Instantiate(_bulletPrefab);
+        bullet.SetDate(15f, 5f, firePoint, _targetLayer);
+        bullet.Shot();
+        
+        /*
         GameObject projectileObj = Instantiate(projectilePrefab, spawnPosition, Quaternion.identity);
-
+        
         if (projectileObj == null)
             return;
 
@@ -89,6 +101,8 @@ public class PlayerAutoAttack : MonoBehaviour
         }
 
         projectile.Initialize(direction, damage, gameObject);
+        */
+        
     }
 }
 

@@ -64,11 +64,11 @@ public class PlayerTargeting : MonoBehaviour
 
         if (_currentTarget != null)
         {
-            Debug.Log("현재 타겟: " + _currentTarget.name);
+            Debug.Log($"현재 타겟: " + _currentTarget.name);
         }
         else
         {
-            Debug.Log("현재 타겟 없음");
+            Debug.Log($"현재 타겟 없음");
         }
 
     }

@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 3720733348658195545}
   - component: {fileID: 8773434999956632070}
   - component: {fileID: 4502010685245088559}
-  m_Layer: 0
+  - component: {fileID: 6128464179066879960}
+  m_Layer: 11
   m_Name: TargetDetector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,6 +71,56 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &6128464179066879960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752454304423846321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a9c7d222a6b13458cbb347d96b89fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coolTime: 0.5
+  damage: 10
+  _bulletPrefab: {fileID: 6675365810132857889, guid: d667e3bb327295f4dab200d70c0835aa, type: 3}
+  firePoint: {fileID: 1129918263735195419}
+  _targetLayer:
+    serializedVersion: 2
+    m_Bits: 128
+--- !u!1 &2567423511481134633
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1129918263735195419}
+  m_Layer: 6
+  m_Name: Muzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1129918263735195419
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2567423511481134633}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 2.07}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 124458578996884989}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6934001465781501787
 GameObject:
   m_ObjectHideFlags: 0
@@ -80,7 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3724946153409164552}
   - component: {fileID: 5605690675586800765}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Interactor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,8 +168,8 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 1
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 2.31
@@ -142,7 +193,7 @@ GameObject:
   - component: {fileID: 684015857056658518}
   m_Layer: 6
   m_Name: PlayerCharacter
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -163,6 +214,7 @@ Transform:
   - {fileID: 4894670384114402073}
   - {fileID: 3720733348658195545}
   - {fileID: 3724946153409164552}
+  - {fileID: 1129918263735195419}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &3209382510254066017
@@ -264,6 +316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 100
+  _currentHP: 0
 --- !u!114 &8865248227520700265
 MonoBehaviour:
   m_ObjectHideFlags: 0
