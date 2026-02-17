@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coolTime: 0.5
-  damage: 10
+  damage: 30
   _bulletPrefab: {fileID: 6675365810132857889, guid: d667e3bb327295f4dab200d70c0835aa, type: 3}
   firePoint: {fileID: 1129918263735195419}
   _targetLayer:

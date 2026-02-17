@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6642485248521705216}
-  - component: {fileID: 5089976878300356237}
   - component: {fileID: 7549827577948256929}
+  - component: {fileID: 8169884318951725759}
   m_Layer: 0
   m_Name: ExitPortal
   m_TagString: Untagged
@@ -34,21 +34,6 @@ Transform:
   - {fileID: 8131256027240640813}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5089976878300356237
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5222527502901088648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cca539f8c742a984d829190d319c5407, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetLayer:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!135 &7549827577948256929
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -70,6 +55,21 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 2.36
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8169884318951725759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5222527502901088648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df3aea12648cd164d82b0eb47d53e14a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactionLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1001 &2726180112642878744
 PrefabInstance:
   m_ObjectHideFlags: 0
