@@ -28,8 +28,6 @@ public class PlayerHealth : MonoBehaviour, IDamagable
 
         _currentHP -= damage;
 
-        // Debug.Log($"플레이어 피격: {damage} / 남은 HP: {_currentHP}");
-
         if (_currentHP <= 0f)
         {
             Die();
@@ -51,9 +49,7 @@ public class PlayerHealth : MonoBehaviour, IDamagable
         }
 
         OnDie?.Invoke();
-
-        // TODO: GameManager 구현 후 연결 예정
-        // GameManager.Instance.GameOver();
+        GameManager.Instance.GameOver();
     }
 
     public float GetCurrentHP()
