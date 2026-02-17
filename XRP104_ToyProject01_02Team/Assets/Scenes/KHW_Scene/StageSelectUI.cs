@@ -9,6 +9,7 @@ public class StageSelectUI : MonoBehaviour
     public void LoadStage(int stage)
     {
         SceneManager.LoadScene(2);
+        GameManager.Instance.StageNumber = stage;
     }
     
     public void ToTitle() => SceneManager.LoadScene(0);
