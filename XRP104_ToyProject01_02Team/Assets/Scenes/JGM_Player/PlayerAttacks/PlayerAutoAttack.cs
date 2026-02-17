@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerTargeting))]
@@ -6,6 +7,7 @@ public class PlayerAutoAttack : MonoBehaviour
     [Header("Attack Settings")]
     [SerializeField] private float coolTime = 0.5f;
     [SerializeField] private float damage = 10f;
+    [SerializeField] private float bulletSpeed = 10;
     //[SerializeField] private GameObject projectilePrefab;
     [SerializeField] private PlayerBullet _bulletPrefab;
     [SerializeField] private Transform firePoint;
@@ -14,6 +16,8 @@ public class PlayerAutoAttack : MonoBehaviour
     private PlayerTargeting _targeting;
     private float _lastAttackTime = -999f;
     private bool _isAttacking = false;
+
+    public event Action OnFire; 
 
     private void Awake()
     {
@@ -82,8 +86,10 @@ public class PlayerAutoAttack : MonoBehaviour
             */
 
         PlayerBullet bullet = Instantiate(_bulletPrefab);
-        bullet.SetDate(15f, 5f, firePoint, _targetLayer);
+        bullet.SetDate(bulletSpeed, damage, firePoint, _targetLayer);
         bullet.Shot();
+        
+        OnFire?.Invoke();
         
         /*
         GameObject projectileObj = Instantiate(projectilePrefab, spawnPosition, Quaternion.identity);
