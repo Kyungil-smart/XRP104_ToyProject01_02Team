@@ -1,56 +1,15 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class StageSelectUI : MonoBehaviour
 {
-    public GameObject pausePopup;
-    public GameObject gameOverPopup;
-    public GameObject stageClearPopup;
-
-    bool isPaused = false;
-
-    private void Update()
+    [SerializeField] private Button _backButton;
+    
+    public void LoadStage(int stage)
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            TogglePause();
-        }
+        SceneManager.LoadScene(2);
     }
-
-    // Pause On/Off
-    public void TogglePause()
-    {
-        isPaused = !isPaused;
-        pausePopup.SetActive(isPaused);
-        Time.timeScale = isPaused ? 0 : 1;
-    }
-
-    // Continue 버튼
-    public void ContinueGame()
-    {
-        isPaused = false;
-        pausePopup.SetActive(false);
-        Time.timeScale = 1;
-    }
-
-    // Title 이동
-    public void GoToTitle()
-    {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(0);
-    }
-
-    // Game Over
-    public void ShowGameOver()
-    {
-        Time.timeScale = 0f;
-        gameOverPopup.SetActive(true);
-    }
-
-    // Stage Clear
-    public void ShowStageClear()
-    {
-        Time.timeScale = 0f;
-        stageClearPopup.SetActive(true);
-    }
+    
+    public void ToTitle() => SceneManager.LoadScene(0);
 }
