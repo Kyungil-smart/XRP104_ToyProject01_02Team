@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3720733348658195545}
   - component: {fileID: 8773434999956632070}
   - component: {fileID: 4502010685245088559}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: TargetDetector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3724946153409164552}
   - component: {fileID: 5605690675586800765}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Interactor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,6 +139,7 @@ GameObject:
   - component: {fileID: 2923191604247662084}
   - component: {fileID: 8865248227520700265}
   - component: {fileID: 6134388390344948531}
+  - component: {fileID: 684015857056658518}
   m_Layer: 6
   m_Name: PlayerCharacter
   m_TagString: Untagged
@@ -289,6 +290,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a69fa0dd98b4a324085e2ddc0ab8288f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &684015857056658518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8028144994094992686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ef1d9d4d9f1f934f826de6963a99b37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _offset: {x: 0, y: 9, z: -4.5}
+  _angle: 55
 --- !u!1001 &2435042974455476971
 PrefabInstance:
   m_ObjectHideFlags: 0
